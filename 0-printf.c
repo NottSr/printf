@@ -34,6 +34,7 @@ int _printf(const char *format, ...)
 				{
 					num += tsec[m].f(prif);
 					i += 1;
+					break;
 				}
 			}
 		}

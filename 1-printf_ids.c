@@ -24,7 +24,7 @@ int id_str(va_list inprif)
 	char *st = va_arg(inprif, char *);
 
 	if (st == NULL)
-		st = "error";
+		st = "(null)";
 	while (st[i] != '\0')
 		i++;
 	write(1, st, i);
