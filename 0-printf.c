@@ -8,12 +8,13 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, m, *len, num = 0;
+	int i = 0, m = 0, *len = NULL, num = 0;
 
 	va_list prif;
 	idp tsec[] = {
 		{"c", id_char},
 		{"s", id_str},
+		{NULL, NULL}
 	};
 
 	len = &num;
@@ -25,20 +26,18 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			printf("el valor de fromat[i] es: %c\n", format[i]);
-			printf("Entro al primer if\n");
-			m = 0;
-			while (tsec[m].id != NULL)
+			/*printf("el valor de fromat[i] es: %c\n", format[i]);
+			printf("Entro al primer if\n");*/
+			for (m = 0; tsec[m].id != NULL; m++)
 			{
 				if (tsec[m].id[0] == format[i + 1])
 				{
-					printf("Entro al segundo if\n");
+					/*printf("Entro al segundo if\n");*/
 					tsec[m].f(prif, len);
 					i++;
 				}
-				m++;
 			}
-			i += 1;
+			i++;
 		}
 		write(1, &format[i], 1);
 	}
