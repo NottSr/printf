@@ -1,19 +1,22 @@
 #include "main.h"
 
-void id_char(va_list prif)
+void id_char(va_list inprif, int *len)
 {
-	char c = va_arg(prif, int);
+	char c = va_arg(inprif, int);
 
-	write (1, &c, 1);
+	write(1, &c, 1);
+    (*len)++;
 }
 
-void id_str(va_list prif)
+void id_str(va_list inprif, int *len)
 {
-	unsigned int i = 0;
-	char *c = va_arg(prif, char *);
+	int i = 0;
+	char *c = va_arg(inprif, char *);
+
 	while (c[i])
 	{
 		write(1, &c[i], 1);
+		len++;
 		i++;
 	}
 }

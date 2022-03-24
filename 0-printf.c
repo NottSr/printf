@@ -1,36 +1,46 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
-
+/**
+ * _printf - Our print function
+ * @format: input to be printed
+ * Return: the number of characters printed or 0
+ */
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, m = 0;
+	int i, m, *len, num = 0;
 
 	va_list prif;
 	idp typ[] = {
 		{"c", id_char},
-		{"s", id_str}};
+		{"s", id_str},
+	};
+
+	len = &num;
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
 
 	va_start(prif, format);
-	while (format[i])
+	for (i = 0; format[i] != '\0' && format != NULL; i++)
 	{
 		if (format[i] == '%')
 		{
-			while (typ[m].id != 0)
+			m = 0;
+			while (typ[m].id != NULL)
 			{
-				if (format[i + 1] == typ[m].id[0])
+				if (typ[m].id[0] == format[i + 1])
 				{
-					typ[m].f(prif);
+					typ[m].f(prif, len);
 				}
 				m++;
+				i =+ 1;
 			}
 		}
 		else
 		{
 			write(1, &format[i], 1);
 		}
-		i++;
 	}
 	va_end(prif);
-	return (1);
+	return (*len);
 }
