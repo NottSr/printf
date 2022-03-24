@@ -3,7 +3,8 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-typedef struct typ{
+typedef struct typ
+{
     char *id;
     void (*f)(va_list prif);
 } idp;
