@@ -2,15 +2,14 @@
 #include <stdarg.h>
 #include "main.h"
 
-int _printf(const char *restrict format, ...)
+int _printf(const char *format, ...)
 {
     unsigned int i = 0, m = 0;
 
     va_list prif;
     idp typ[] = {
         {"c", id_char},
-        {"s", id_str}
-    };
+        {"s", id_str}};
 
     va_start(prif, format);
     while (format[i])
@@ -33,11 +32,12 @@ int _printf(const char *restrict format, ...)
         i++;
     }
     va_end(prif);
+    return (1);
 }
 
 void id_char(va_list prif)
 {
-    char c = va_arg(prif, char);
+    char c = va_arg(prif, int);
     write(1, &c, 1);
 }
 
