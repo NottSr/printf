@@ -10,10 +10,12 @@
 typedef struct typ
 {
 	char *id;
-	void (*f)(va_list, int*);
+	int (*f)(va_list);
 } idp;
 
 int _printf(const char *format, ...);
-void id_char(va_list inprif, int *len);
-void id_str(va_list inprif, int *len);
+int id_char(va_list inprif);
+int id_str(va_list inprif);
+int id_int(va_list inprif);
+int id_per(va_list inprif);
 #endif
