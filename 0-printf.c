@@ -45,5 +45,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(prif);
-	return (len + num);
+	return ((len + 1) + num);
 }
