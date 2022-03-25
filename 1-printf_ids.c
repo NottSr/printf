@@ -57,16 +57,17 @@ int expo(int num, int expo)
  */
 int id_int(va_list inprif)
 {
-	int i, num2, num3, zero = 0, ten = 10, count = 0, count2, negative = 0;
-	int num = va_arg(inprif, int);
+	int i, num3, ten = 10, count = 0, count2, negative = 0;
+	long int num = va_arg(inprif, int);
+	unsigned int num2;
 	char nums;
 
-	num2 = num;
 	if (num < 0)
 	{
 		num *= -1;
 		negative = 1;
 	}
+	num2 = num;
 	if (num == 0)
 	{
 		write(1, "0", 1);
@@ -82,7 +83,7 @@ int id_int(va_list inprif)
 		write(1, "-", 1);
 	for (i = 0; i < count;)
 	{
-		num3 = num / expo(ten, count2); /* 2 */
+		num3 = num / expo(ten, count2);
 		num = num % expo(ten, count2);
 		if (num >= 0)
 		{
@@ -94,7 +95,6 @@ int id_int(va_list inprif)
 	}
 	if (count < 0)
 		count++;
-	(void)zero;
 	return (count + negative);
 }
 /**
