@@ -37,6 +37,10 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
+			if (format[i + 1] != '\0' && m == 5)
+			{
+				write(1, &format[i], 1);
+			}
 		}
 		else
 		{
@@ -45,5 +49,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(prif);
-	return ((len + 1) + num);
+	return (len + num);
 }

@@ -31,7 +31,12 @@ int id_str(va_list inprif)
 	write(1, st, i);
 	return (i - 1);
 }
-
+/**
+ * expo - Our print function
+ * @num: ten
+ * @expo: contador
+ * Return: result
+ */
 int expo(int num, int expo)
 {
 	int result = num;
@@ -60,6 +65,7 @@ int id_int(va_list inprif)
 	if (num < 0)
 	{
 		num *= -1;
+		negative = 1;
 	}
 
 	if (num == 0)
@@ -107,7 +113,7 @@ int id_per(va_list inprif)
 {
 	char per = '%';
 
-	(void)inprif;
+	(void) inprif;
 	write(1, &per, 1);
 	return (1);
 }
