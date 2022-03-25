@@ -19,7 +19,6 @@ int _printf(const char *format, ...)
 		{"%", id_per},
 		{NULL, NULL}
 	};
-
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
@@ -36,7 +35,10 @@ int _printf(const char *format, ...)
 					break;
 				}
 			if (format[i + 1] != '\0' && m == 5)
+			{
 				write(1, &format[i], 1);
+				num++;
+			}
 		}
 		else
 		{

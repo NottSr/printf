@@ -29,7 +29,7 @@ int id_str(va_list inprif)
 	while (st[i] != '\0')
 		i++;
 	write(1, st, i);
-	return (i - 1);
+	return (i);
 }
 /**
  * expo - Our print function
@@ -43,6 +43,7 @@ int expo(int num, int expo)
 
 	if (expo == 1)
 		return (1);
+
 	for (; expo > 2; expo--)
 		result = result * num;
 
