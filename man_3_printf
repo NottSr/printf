@@ -1,0 +1,38 @@
+.TH _printf "_printf man page" 24/03/2022
+.SH NAME
+.B _printf
+.PP
+.SH SYNOPSIS
+.B #include "holberton.h"
+.B int _printf(const char *format, ...)
+.PP
+.SH DESCRIPTION
+The _printf() funtion produce the output acording to the format using write.
+.PP
+.SH CONVERSION SPECIFIERS
+Is a char that gives the conversion type that will be appied.
+The specifiers are:
+.PP
+.B c
+The argument is converted to a char and printed.
+.PP
+.B s
+The argument is a string and printed by char.
+.PP
+.B %
+The percent symbol is printed.
+.PP
+.B d
+The argument is a decimal turn into data char to be printed.
+.PP
+.B i
+The argument is an integer turn into data char to be printed.
+.PP
+.SH RETURN
+The number of characters printed (excluding the null byte used to end output to strings)
+.PP
+.SH BUGS
+.B Not known bugs yet
+.PP
+.SH AUTHORS
+.BI Written by Leonardo Berrio and Juan Pablo Lopera
