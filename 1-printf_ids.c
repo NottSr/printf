@@ -56,43 +56,35 @@ int expo(int num, int expo)
  */
 int id_int(va_list inprif)
 {
-	int i, num2, num3, zero = 0, ten = 10, count = 0, count2;
-	int negative = 0;
+	int i, num2, num3, zero = 0, ten = 10, count = 0, count2, negative = 0;
 	int num = va_arg(inprif, int);
 	char nums;
-	num2 = num;
 
+	num2 = num;
 	if (num < 0)
 	{
 		num *= -1;
 		negative = 1;
 	}
-
 	if (num == 0)
 	{
 		write(1, "0", 1);
 		return (1);
 	}
-
 	while (num2 != 0)
 	{
 		num2 /= 10;
 		count++;
 	}
-
-	/* 	printf("-> %d\n", expo(10, 3)); */
 	count2 = count;
 	if (negative == 1)
-	{
 		write(1, "-", 1);
-	}
 	for (i = 0; i < count;)
 	{
 		num3 = num / expo(ten, count2); /* 2 */
 		num = num % expo(ten, count2);
 		if (num >= 0)
 		{
-			/* printf(">>%d\n", num3); */
 			nums = num3 + '0';
 			write(1, &nums, 1);
 		}

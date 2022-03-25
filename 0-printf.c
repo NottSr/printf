@@ -29,18 +29,14 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			for (m = 0; tsec[m].id != NULL; m++)
-			{
 				if (tsec[m].id[0] == format[i + 1])
 				{
 					num += tsec[m].f(prif);
 					i += 1;
 					break;
 				}
-			}
 			if (format[i + 1] != '\0' && m == 5)
-			{
 				write(1, &format[i], 1);
-			}
 		}
 		else
 		{
